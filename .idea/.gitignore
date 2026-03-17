@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+!data/2026_league_matches.csv
+!data/2025_league_matches.csv
+!data/2025_2026_league_matches.csv
