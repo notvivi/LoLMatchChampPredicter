@@ -5,7 +5,7 @@
 This project is a **desktop application for League of Legends draft prediction**.  
 It uses a **machine learning model trained on real ranked match data** to recommend optimal champion picks based on team composition.
 
-- Data source: https://developer.riotgames.com/apis
+- Data sources: https://developer.riotgames.com/apis and https://darkintaqt.com/blog/champ-ids
 - Model: https://drive.google.com/drive/folders/13cIkm6INGS5btVNQXJgnUCCGkHzkgTI2?usp=sharing
 
 ---
