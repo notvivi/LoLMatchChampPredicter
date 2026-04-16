@@ -126,7 +126,7 @@ Model output:
 
 ## Documentation
 - README.md – project overview and usage
-- [documentation.pdf](doc/documentation.pdf) - overall documentation (readme is shortened)
+- [documentation.pdf](documentation.pdf) - overall documentation (readme is shortened)
 - [license](LICENSE) - used license for this project
 
 ---
