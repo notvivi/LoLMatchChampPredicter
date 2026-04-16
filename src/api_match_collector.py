@@ -9,7 +9,13 @@ TARGET_MATCHES = 1000
 OUTPUT_FILE = "../data/lol_data_emerald.csv"
 HEADERS = {"X-Riot-Token": API_KEY}
 
+
 def get_data(url):
+    """
+    Gets data from Riot API with GET request.
+    :param url: API endpoint URL.
+    :return: JSON response if successful, else None if the request failed.
+    """
     while True:
         response = requests.get(url, headers=HEADERS)
         if response.status_code == 200:
@@ -21,6 +27,11 @@ def get_data(url):
             return None
 
 def get_emerald_puuids(target_count=600):
+    """
+    Gets PUUIDs of players in the Emerald division.
+    :param target_count:target_count (int): The number of unique PUUIDs to collect.
+    :return:list: A list of PUUID strings.
+    """
     puuids = []
     for division in ["I", "II", "III", "IV"]:
         page = 1
@@ -42,6 +53,13 @@ def get_emerald_puuids(target_count=600):
     return puuids[:target_count]
 
 def collect():
+    """
+Orchestrates the data collection process:
+    1. Fetches PUUIDs.
+    2. Gathers Match IDs for those players.
+    3. Scrapes detailed match info (champions, roles, win/loss).
+    4. Saves results to a CSV file.
+    """
     puuids = get_emerald_puuids(target_count=600)
 
     match_ids = set()
