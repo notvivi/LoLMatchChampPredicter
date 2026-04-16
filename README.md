@@ -1,43 +1,32 @@
 # Solo/Duo Champ Predictor
-
 **Author:** Vilma Tomanová  
-
 This project is a **desktop application for League of Legends draft prediction**.  
 It uses a **machine learning model trained on real ranked match data** to recommend optimal champion picks based on team composition.
-
 - Data sources: https://developer.riotgames.com/apis and https://darkintaqt.com/blog/champ-ids
-- Model: https://drive.google.com/drive/folders/13cIkm6INGS5btVNQXJgnUCCGkHzkgTI2?usp=sharing
+- Model files: https://drive.google.com/drive/folders/13cIkm6INGS5btVNQXJgnUCCGkHzkgTI2?usp=sharing
 
 ---
 
 # Requirements
-
-- Python 3.10+
-- customtkinter
-- pillow
-- requests
-- numpy
-- joblib
-- scikit-learn
-
-Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+- customtkinter>=5.2.2
+- Pillow>=10.0.0
+- requests>=2.31.0
+- numpy>=1.26.0
+- torch>=2.1.0
+- charset-normalizer>=3.0.0
 
 ---
 
 # Key Features
-
 - Champion recommendation based on draft composition  
 - Real-time prediction during champion select  
 - Role-based pick suggestions (TOP, JUNGLE, MIDDLE, BOTTOM, SUPPORT)  
 - Uses real data collected via Riot API  
 - Lightweight desktop UI (CustomTkinter)  
+
 ---
 
 # Table of Contents
-
 - Installation  
 - Usage  
 - How it works  
@@ -50,18 +39,29 @@ pip install -r requirements.txt
 
 # Installation
 
+### Option A — Executable (no Python required)
+1. Download `ChampPredictor.zip` from the [latest release](../../releases/latest)
+2. Extract the zip
+3. Double-click `ChampPredictor.exe`
 
+### Option B — Run from source
+1. Clone the repository
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+3. Download model files from [Google Drive](https://drive.google.com/drive/folders/13cIkm6INGS5btVNQXJgnUCCGkHzkgTI2?usp=sharing) and place them in the `src/` folder
+4. Run the application:
+```bash
+cd src
+python app.py
+```
 
 ---
 
 # Usage
 
-
-
----
-
-# How to Use
-
+## How to Use
 1. Select your role  
 2. Enter champion names into slots (press **Enter**)  
 3. Fill ally and enemy team compositions  
@@ -75,16 +75,13 @@ pip install -r requirements.txt
 ---
 
 # How it Works
-
 The application:
-
 1. Loads champion data from Riot Data Dragon  
 2. Converts selected champions into **feature vectors**  
 3. Uses a trained **machine learning model**  
 4. Outputs top 3 recommended champions  
 
 ### Feature Engineering
-
 - Champion tags (Tank, Mage, Assassin, etc.)
 - Team composition statistics
 - Ally vs enemy differences
@@ -93,15 +90,12 @@ The application:
 ---
 
 # Data Collection
-
 Data was collected using a **custom scraper** based on Riot API:
-
 - Region: `EUN1`
 - Queue: `RANKED_SOLO_5x5`
 - Rank: `EMERALD I–IV`
 
 Each match generates multiple records containing:
-
 - Role
 - Champion ID
 - Win/loss
@@ -115,16 +109,16 @@ Dataset size:
 ---
 
 # Model Training
-
 The model is trained using:
-
-- Scikit-learn (RandomForestClassifier)
+- PyTorch (DraftNet — feed-forward neural network)
 - Train/Test split (80/20)
 - Feature engineering from raw match data
 
 Model output:
 - Probability distribution over champions
 - Top 3 recommended picks displayed in UI
+
+---
 
 # Old project links
 - [Documentation structure](https://github.com/notvivi/DatabaseManagementForShop/blob/main/doc/documentation.pdf)
@@ -134,3 +128,21 @@ Model output:
 - README.md – project overview and usage
 - [documentation.pdf](doc/documentation.pdf) - overall documentation (readme is shortened)
 - [license](LICENSE) - used license for this project
+
+---
+
+# Release Notes
+
+## v1.0 — Initial Release
+
+### What's included
+- Champion recommendation based on ally/enemy draft composition
+- Role-based pick suggestions (TOP, JUNGLE, MIDDLE, BOTTOM, SUPPORT)
+- Champion icons loaded from Riot Data Dragon
+- Partial name input support (e.g. "yas" → Yasuo)
+
+### System requirements
+- Windows 10/11
+- Internet connection (for champion icons)
+- No Python installation required
+
