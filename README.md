@@ -128,8 +128,9 @@ Model output:
 
 # Old project links
 - [Documentation structure](https://github.com/notvivi/DatabaseManagementForShop/blob/main/doc/documentation.pdf)
+- [User interface](https://github.com/notvivi/HackerBankNode/tree/main/src/ui)
 
 ## Documentation
 - README.md – project overview and usage
-- [documentation.pdf](doc/documentation.pdf) - overall documentation (readme is shortened )
+- [documentation.pdf](doc/documentation.pdf) - overall documentation (readme is shortened)
 - [license](LICENSE) - used license for this project
